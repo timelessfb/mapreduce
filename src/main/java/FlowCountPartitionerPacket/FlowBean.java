@@ -1,4 +1,4 @@
-package FlowCountPacket;
+package FlowCountPartitionerPacket;
 
 import org.apache.hadoop.io.Writable;
 

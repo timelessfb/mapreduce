@@ -1,12 +1,12 @@
-package FlowCountPacket;
+package FlowCountSortPacket;
 
-import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.io.WritableComparable;
 
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class FlowBean implements Writable {
+public class FlowBean implements WritableComparable<FlowBean> {
     private Long upFlow;
     private Long downFlow;
     private Long sumFlow;
@@ -50,5 +50,9 @@ public class FlowBean implements Writable {
     @Override
     public String toString() {
         return upFlow + "\t" + downFlow + "\t" + sumFlow;
+    }
+
+    public int compareTo(FlowBean o) {
+        return sumFlow > o.getSumFlow() ? -1 : 1;
     }
 }
